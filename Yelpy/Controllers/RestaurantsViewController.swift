@@ -11,26 +11,29 @@ import AlamofireImage
 
 class RestaurantsViewController: UIViewController {
     
-    // ––––– TODO: Add storyboard Items (i.e. tableView + Cell + configurations for Cell + cell outlets)
-    // ––––– TODO: Next, place TableView outlet here
     
+    @IBOutlet weak var tableView: UITableView!
     
-    // –––––– TODO: Initialize restaurantsArray
-    
-    
-    
-    // ––––– TODO: Add tableView datasource + delegate
+    var restaurantArray: [[String: Any?]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
 
     }
     
-    
-    // ––––– TODO: Get data from API helper and retrieve restaurants
-    
+    func getAPIData(){
+        API.getRestaurants(completion: restaurants) in gurad let restaurants = restaurants else {
+            return
+        }
+        print(restaurants)
+        self.restaurantArray = restaurants
+    }
 
 }
+
+func tableView( tableView: U)
 
 // ––––– TODO: Create tableView Extension and TableView Functionality
 

@@ -16,7 +16,7 @@ struct API {
     static func getRestaurants(completion: @escaping ([[String:Any]]?) -> Void) {
         
         // ––––– TODO: Add your own API key!
-        let apikey = ""
+        let apikey = "0vd2Nb0K8hoUmL-p8aSqKlvYw57kd64og7MMcdH6GuXSbViIA1a3TC_CiWD456SLOf4Eq1KaxhYeJ7O8D-5wJW8p_bGq56PDjfFiv_fccYDUGVTC6ldosFQa1rtJX3Yx"
         
         // Coordinates for San Francisco
         let lat = 37.773972
@@ -40,10 +40,11 @@ struct API {
         
 
                 // ––––– TODO: Get data from API and return it using completion
+                print(data)
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let restaurants = dataDictionary[]
                 
-                
-                
-                return completion([[:]])
+                return completion(restaurants)
                 
                 }
             }
